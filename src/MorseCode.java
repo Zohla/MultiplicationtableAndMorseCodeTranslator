@@ -3,8 +3,10 @@ import java.util.*;
 public class MorseCode {
 
     public static void main(String[] args) {
+        Map<Integer,String> archive = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
+        int entry = 1;
         System.out.println("What do you want translated to morse code?To exit program, type Q.");
         boolean keepGoing = true;
 
@@ -12,9 +14,12 @@ public class MorseCode {
             String translateThis = scanner.nextLine().toLowerCase();
             if (translateThis.equals("q")) {
                 keepGoing = false;
+                System.out.println(archive);
             } else {
+                archive.put(entry,translateThis);
                 translator(translateThis);
                 System.out.println();
+                entry++;
             }
         }
     }
@@ -64,6 +69,5 @@ public class MorseCode {
 
             i++;
         }
-
     }
 }
